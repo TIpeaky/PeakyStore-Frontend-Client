@@ -1,1 +1,0 @@
-# PeakyStore-Frontend-Client

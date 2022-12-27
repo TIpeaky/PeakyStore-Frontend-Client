@@ -1,0 +1,24 @@
+.paginationContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 15px;
+    margin-bottom: 10px;
+}
+
+
+.paginationItem {
+    width: 8px;
+    height: 8px;
+    border-radius: 80%;
+    background-color: black;
+    border: black solid 2px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: 10px;
+}
+
+.active {
+    background-color: #fff;
+}
