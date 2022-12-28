@@ -40,7 +40,6 @@ h4 {
   &:hover {
     transition: 500ms;
     width: 270px;
-    margin: 0px 30px;
 
     img {
       border-radius: 10px;
@@ -98,7 +97,6 @@ h4 {
     transition: 100ms;
     width: 210px;
     height: 210px;
-    margin: -5px -5px;
   }
 }
 
@@ -135,8 +133,9 @@ h4 {
 }
 
 .brandCarrousel {
+  margin-top: 15px;
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   justify-content: space-between;
   overflow-x: auto;
   scroll-behavior: smooth;
@@ -175,7 +174,6 @@ h4 {
     transition: 100ms;
     width: 210px;
     height: 210px;
-    margin: -5px -5px;
   }
 }
 
@@ -203,7 +201,6 @@ h4 {
   &:hover {
     transition: 100ms;
     width: 14px;
-    margin: 0 -2px;
   }
 }
 

@@ -1,3 +1,4 @@
+import React, { useState } from "react";
 import Form from "../../components/FormRegister";
 
 const UserRegister = () => {

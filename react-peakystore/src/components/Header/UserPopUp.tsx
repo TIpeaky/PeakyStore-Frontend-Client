@@ -39,7 +39,6 @@ function UserPopUp() {
                     <li className={styles.link_standard}><a  href="#">Minha conta</a></li>
                     <li className={styles.link_standard}><a  href="#">Meus pedidos</a></li>
                     <li className={styles.link_standard}><a  href="#">Minha lista de desejos</a></li>
-                    <li className={styles.link_standard}><a  href="newPassword">Alterar senha</a></li>
                     <li className={styles.link_logout} onClick={efetuarLogout}>Sair da conta</li>
                 </ul>
                 </div>

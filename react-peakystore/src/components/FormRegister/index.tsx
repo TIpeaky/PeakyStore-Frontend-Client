@@ -31,14 +31,6 @@ const UserRegister = () => {
       notification,
     };
 
-    console.log("Usuário - cpf: " + user.cpf);
-    console.log("Usuário - nome: " + user.name);
-    console.log("Usuário - email: " + user.email);
-    console.log("Usuário - senha: " + user.password);
-    console.log("Usuário - preferências (lista): " + user.genderFormList);
-    console.log("Usuário - data de nascimento: " + user.birthDate);
-    console.log("Usuário - notificação: " + user.notification);
-
     if(validatePassword()) {
       http
       .post("user/client", user)
@@ -72,9 +64,6 @@ const UserRegister = () => {
     evento: React.ChangeEvent<HTMLInputElement>
   ) => {
     if (evento.target.value == "true") {
-      if (notification == true) {
-        console.log("Desmarcado");
-      }
       setNotification(!notification);
     }
   };

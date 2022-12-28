@@ -1,11 +1,13 @@
 import { Route, Routes } from 'react-router-dom'
 import Home from "../pages/Home"
+import LoginAdmin from '../pages/Login/Admin'
 import LoginUsuario from '../pages/Login/User'
 import PaginaBase from "../pages/PageBase"
+import ProductCrud from '../pages/product_crud/ProductCrud'
 import Products from '../pages/Products'
 import UserRegister from "../pages/UserRegister"
-import NewPassword from '../pages/NewPassword'
-import NotFound from '../pages/NotFound'
+import PaginaBaseAdmin from "../pages/PageBase/Admin"
+import Dashboard from '../pages/Dashboard'
 
 
 const Rotas = () => {
@@ -16,8 +18,13 @@ const Rotas = () => {
         <Route path='login' element={<LoginUsuario />} />
         <Route path='products' element={<Products />} />
         <Route path='register' element={<UserRegister />} />
-        <Route path='/newPassword' element={<NewPassword/>} />
-        <Route path='*' element={<NotFound />} />
+      </Route>
+      <Route path='/admin'>
+        <Route path='login' element={<LoginAdmin />} />
+      </Route>
+      <Route path='/admin' element={<PaginaBaseAdmin />} >
+        <Route path='' element={<Dashboard />} />
+        <Route path='products' element={<ProductCrud />} />
       </Route>
     </Routes>);
 }

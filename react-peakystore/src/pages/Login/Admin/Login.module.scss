@@ -39,9 +39,7 @@
     padding: 1px;
 }
 
-.label {
+.login__singIn {
     display: flex;
-    color: gray;
-    font-size: 120%;
-    padding-top: 3%;
+    flex-direction: column;
 }

@@ -69,7 +69,6 @@ export const AbCampoTexto = ({
                 type={type}
                 value={value}
                 onChange={event => onChange(event.target.value)}
-                required
             />
         </div>
     )

@@ -9,6 +9,14 @@ export const maskCPF = (value: string) => {
     return value
 }
 
+export const maskPrice = (value: string) => {
+    value = value.replace(/\D/g, "")
+  
+    value = value.replace(/([0-9]{2})$/g, ",$1")
+  
+    return value
+}
+
 export const validationCPF = (CPF: string) => {
 	if (CPF.length !== 11 || ['00000000000', '11111111111', '22222222222',
           '33333333333', '44444444444', '55555555555', '66666666666',

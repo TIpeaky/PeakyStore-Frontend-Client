@@ -4,7 +4,7 @@ import { useState } from "react";
 
 interface props {
   name: string;
-  price: string;
+  price: number;
   img: string;
   link?: string;
 }
