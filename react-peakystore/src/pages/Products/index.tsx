@@ -40,11 +40,16 @@ interface productApi {
 }
 
 interface filter {
-    categoryFormList: [];
-    sizeFormList: [];
-    productBrandFormList: [];
-    sectionFormList: [];
-    colorFormList: [];
+  categoryFormList: [];
+  sizeFormList: [];
+  productBrandFormList: [];
+  sectionFormList: [];
+  colorFormList: [];
+}
+
+interface select {
+  title: string;
+  value: string;
 }
 
 export interface IOpcao {
@@ -69,6 +74,13 @@ const Products = () => {
 
   const [filtro, setFiltro] = useState<number | null>(null);
 
+  const [ordList, setOrdList] = useState<select[]>([
+    { title: "Preço Crescente", value: "salePrice,asc" },
+    { title: "Preço Decrescente", value: "salePrice,desc" },
+    { title: "A - Z", value: "name,asc" },
+    { title: "Z - A", value: "name,desc" },
+  ]);
+
   useEffect(() => {
     const fecthData = async () => {
       http
@@ -79,11 +91,20 @@ const Products = () => {
             pageNumber +
             "&pageSort=" +
             sort +
-            "&color=" + color.map((option: IOpcao, position) => (option.name.toUpperCase())) +
-            "&productBrand=" + productBrand.map((option: IOpcao, position) => (option.name.toUpperCase())) +
-            "&size=" + size.map((option: IOpcao, position) => (option.name.toUpperCase())) +
-            "&category=" + category.map((option: IOpcao, position) => (option.name.toUpperCase())) +
-            "&section=" + section.map((option: IOpcao, position) => (option.name.toUpperCase()))
+            "&color=" +
+            color.map((option: IOpcao, position) => option.name.toUpperCase()) +
+            "&productBrand=" +
+            productBrand.map((option: IOpcao, position) =>
+              option.name.toUpperCase()
+            ) +
+            "&size=" +
+            size.map((option: IOpcao, position) => option.name.toUpperCase()) +
+            "&category=" +
+            category.map((option: IOpcao, position) =>
+              option.name.toUpperCase()
+            ) +
+            "&section=" +
+            section.map((option: IOpcao, position) => option.name.toUpperCase())
         )
         .then((response) => {
           setProducts(response.data["content"]);
@@ -99,6 +120,7 @@ const Products = () => {
   };
 
   const onChangeSelector = (option: string) => {
+    console.log(ordList);
     setSort(option);
   };
 
@@ -109,19 +131,26 @@ const Products = () => {
     setCategory(filter["categoryFormList"]);
     setSection(filter["sectionFormList"]);
 
-    console.log(color)
-    console.log(productBrand)
-    console.log(size)
-    console.log(category)
-    console.log(section)
+    console.log(color);
+    console.log(productBrand);
+    console.log(size);
+    console.log(category);
+    console.log(section);
 
-    color.map((option: IOpcao, position) => (console.log(option.name.toUpperCase())))
-  }
+    color.map((option: IOpcao, position) =>
+      console.log(option.name.toUpperCase())
+    );
+  };
 
   return (
     <div className={styles.page_products}>
       <div className={styles.selector}>
-        <OrdinationSelector onAddOption={onChangeSelector} />
+        <OrdinationSelector
+          onAddOption={onChangeSelector}
+          selectorName="Ordenação"
+          optionList={ordList}
+          label="Ordenacao"
+        />
       </div>
 
       <div className={styles.container_filter}>
@@ -133,7 +162,11 @@ const Products = () => {
           marginRight="5%"
           marginTop="1%"
         >
-          <FilterProduct filtro={filtro} setFiltro={setFiltro} onAddFilter={onChangeFilter} />
+          <FilterProduct
+            filtro={filtro}
+            setFiltro={setFiltro}
+            onAddFilter={onChangeFilter}
+          />
 
           {products.map(
             (
