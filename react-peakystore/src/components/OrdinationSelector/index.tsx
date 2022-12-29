@@ -27,10 +27,6 @@ const OrdinationSelector = ({selectorName, optionList, label, onAddOption}: prop
     setOption(event.target.value as string);
 
     onAddOption(event.target.value as string);
-
-    console.log("Lista de opções: " + optionList)
-
-    console.log("SelectorName: " + selectorName)
   };
 
   return (
