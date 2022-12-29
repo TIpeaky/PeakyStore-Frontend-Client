@@ -1,0 +1,41 @@
+.container_avaliations {
+    background: #137dab16;
+    justify-content: center;
+    width: 80%;
+    display: flex;
+    flex-direction: column;
+    margin-top: 30px;
+    padding: 30px;
+    border-radius: 10px;
+}
+
+.container_avaliations h1 {
+    font-size: 40px;
+    font-weight: 400;
+}
+
+
+
+.rating{
+    margin-left: 15px;
+}
+
+.avaliation_container_item{
+    display: flex;
+    margin-top: 30px;
+    
+}
+
+.avaliation_info{
+    margin-left: 15px;
+
+}
+
+.avaliation_userName{
+    font-weight: 600;
+    font-size: 1.5em !important;
+}
+
+.avaliation_comment{
+    font-size: 20px;
+}

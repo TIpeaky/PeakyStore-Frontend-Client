@@ -1,0 +1,194 @@
+button {
+    height: max-content;
+    width: max-content;
+    cursor: pointer;
+
+}
+
+.container {
+    display: flex;
+    height: 100%;
+    padding: 70px 30px;
+}
+
+.right_column {
+    margin-left: 40px;
+    flex-grow: 1;
+
+}
+
+.principal {
+    display: flex;
+
+}
+
+.imagem_principal img {
+    width: 95%;
+    display: block;
+
+}
+
+.imagem_principal {
+    padding: 20px 0;
+    width: 40%;
+}
+
+.icon_pix {
+
+    height: 30px;
+}
+
+.icon_cards {
+    height: 30px;
+}
+
+.divisor {
+    font-size: 40px;
+    color: #6b7076c5;
+
+}
+
+.preco {
+    font-size: 40px;
+    color: #137DAB;
+    margin-right: 20px;
+
+}
+
+.info_produto {
+    padding-top: 20px;
+    margin-left: 15px;
+}
+
+.info_produto h1 {
+    font-size: 50px;
+    font-weight: 400;
+    margin-bottom: 20px;
+
+}
+
+.color,
+.size {
+    border: 1px solid #6b7076;
+    width: 50px;
+    height: 50px;
+    display: inline-block;
+    border-radius: 15px;
+    margin-right: 10px;
+}
+
+.container_cor h2,
+.container_size h2,
+.container_shipping {
+    color: #7C838A;
+}
+
+
+
+.container_cor,
+.container_size,
+.container_shipping {
+    margin-top: 15px;
+
+
+}
+
+.size {
+    text-align: center;
+    line-height: 50px;
+    font-size: 20px;
+}
+
+.input_shipping {
+    padding-left: 10px;
+    border-radius: 15px;
+    height: 40px;
+    font-size: 15px;
+
+}
+
+.link_shipping {
+    display: block;
+    color: #137DAB;
+    margin-top: 5px;
+
+}
+
+.link_shipping:hover {
+    text-decoration: underline;
+}
+
+.button_shipping {
+    margin-bottom: 0;
+    margin-left: 10px;
+    background-color: #137DAB;
+    color: white;
+    border-radius: 10px;
+    padding: 10px;
+    height: max-content;
+    width: max-content;
+}
+
+.container_finish {
+    display: flex;
+    margin-top: 15px;
+    padding-bottom: 0;
+}
+
+.btn_cart {
+    background: #2fbd0b;
+    padding: 20px;
+    border-radius: 15px 0 0 15px;
+    height: 80px;
+    margin-bottom: 0;
+}
+
+.icon_cart {
+    font-size: 35px !important;
+    opacity: 0.6;
+}
+
+.btn_finish {
+    font-size: 30px;
+    margin-left: 10px;
+    color: white;
+    background: #2fbd0b;
+    padding: 20px;
+    border-radius: 0 15px 15px 0;
+    height: 80px;
+    margin-bottom: 0;
+}
+
+.container_description h1 {
+    font-size: 40px;
+    font-weight: 400;
+}
+
+.container_description p {
+    text-align: justify;
+    font-size: 20px;
+}
+
+.container_description h3 {
+    font-size: 25px;
+    font-weight: 800;
+    margin-top: 20px;
+}
+
+.container_description ul li {
+    font-size: 20px;
+}
+
+// Miniatura das imagens dos produtos
+.carrousel {
+    margin-top: 50px;
+    width: 10%;
+}
+
+.miniatura {
+    display: block;
+    width: 80px;
+    margin: 0 auto;
+    margin-bottom: 10px;
+    cursor: pointer;
+} 
