@@ -61,7 +61,7 @@ export interface IOpcao {
 
 const Products = () => {
   const [products, setProducts] = useState<productApi[]>([]);
-  const [pageSize, setPageSize] = useState(2);
+  const [pageSize, setPageSize] = useState("20");
   const [pageNumber, setPageNumber] = useState(Number);
   const [totalPages, setTotalPages] = useState(Number);
   const [sort, setSort] = useState("");
@@ -79,6 +79,13 @@ const Products = () => {
     { title: "Preço Decrescente", value: "salePrice,desc" },
     { title: "A - Z", value: "name,asc" },
     { title: "Z - A", value: "name,desc" },
+  ]);
+
+  const [pageList, setPageList] = useState<select[]>([
+    { title: "20 por página", value: "20" },
+    { title: "40 por página", value: "40" },
+    { title: "60 por página", value: "60" },
+    { title: "80 por página", value: "80" },
   ]);
 
   useEffect(() => {
@@ -113,15 +120,27 @@ const Products = () => {
         .catch();
     };
     fecthData();
-  }, [pageNumber, sort, color, productBrand, size, category, section]);
+  }, [
+    pageNumber,
+    pageSize,
+    sort,
+    color,
+    productBrand,
+    size,
+    category,
+    section,
+  ]);
 
   const changePage = (event: ChangeEvent<unknown>, pagina: number) => {
     setPageNumber(pagina - 1);
   };
 
-  const onChangeSelector = (option: string) => {
-    console.log(ordList);
+  const onChangeOrdSelector = (option: string) => {
     setSort(option);
+  };
+
+  const onChangePageSelector = (option: string) => {
+    setPageSize(option);
   };
 
   const onChangeFilter = (filter: filter) => {
@@ -144,54 +163,71 @@ const Products = () => {
 
   return (
     <div className={styles.page_products}>
-      <div className={styles.selector}>
-        <OrdinationSelector
-          onAddOption={onChangeSelector}
-          selectorName="Ordenação"
-          optionList={ordList}
-          label="Ordenacao"
+      <div className={styles.container_selectors}>
+        <div className={styles.selector}>
+          <OrdinationSelector
+            onAddOption={onChangePageSelector}
+            selectorName="Exibir"
+            optionList={pageList}
+            label="Exibir"
+          />
+        </div>
+
+        <div className={styles.selector}>
+          <OrdinationSelector
+            onAddOption={onChangeOrdSelector}
+            selectorName="Ordenação"
+            optionList={ordList}
+            label="Ordenacao"
+          />
+        </div>
+      </div>
+
+      <div className={styles.container_filter_products}>
+        <FilterProduct
+          filtro={filtro}
+          setFiltro={setFiltro}
+          onAddFilter={onChangeFilter}
+        />
+
+        <div className={styles.container_products}>
+          <Grid
+            spacing={3}
+            container
+            width="85%"
+            marginRight="5%"
+            marginLeft="1%"
+            marginTop="1.7%"
+          >
+            {products.map(
+              (
+                product,
+                position // Tamanho do array = quantidade de produtos
+              ) => (
+                <Grid item xs={3} key={position} paddingTop="0px">
+                  <div className={styles.card_product}>
+                    <ProductCard
+                      name={product.name}
+                      price={product.salePrice}
+                      img={image_1}
+                      link="#"
+                    />
+                  </div>
+                </Grid>
+              )
+            )}
+          </Grid>
+        </div>
+      </div>
+
+      <div className={styles.pagination}>
+        <Pagination
+          count={totalPages}
+          onChange={changePage}
+          page={pageNumber + 1}
+          color="primary"
         />
       </div>
-
-      <div className={styles.container_filter}>
-        <Grid
-          className={styles.container_products}
-          spacing={3}
-          container
-          width="70%"
-          marginRight="5%"
-          marginTop="1%"
-        >
-          <FilterProduct
-            filtro={filtro}
-            setFiltro={setFiltro}
-            onAddFilter={onChangeFilter}
-          />
-
-          {products.map(
-            (
-              product,
-              position // Tamanho do array = quantidade de produtos
-            ) => (
-              <Grid item xs={3} key={position}>
-                <ProductCard
-                  name={product.name}
-                  price={product.salePrice}
-                  img={image_1}
-                  link="#"
-                />
-              </Grid>
-            )
-          )}
-        </Grid>
-      </div>
-
-      <Pagination
-        className={styles.pagination}
-        count={totalPages}
-        onChange={changePage}
-        page={pageNumber + 1}
-      />
     </div>
   );
 };
