@@ -8,13 +8,12 @@ import img2 from './img/thumb.jpg'
 import img3 from './img/img3.png'
 import iconPix from './img/pix.png'
 import iconCards from './img/cartoes.png'
-import InputMask from "react-input-mask"
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import AddIcon from '@mui/icons-material/Add';
 import http from "../../http"
 import { useNavigate } from 'react-router-dom';
 import Avaliacoes from '../../components/Avaliacoes/Avaliacoes'
-
+import InputMask from 'react-input-mask';
 
 
 const DetalhesProduto = () => {
