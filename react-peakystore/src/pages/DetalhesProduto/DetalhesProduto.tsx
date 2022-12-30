@@ -26,18 +26,18 @@ const DetalhesProduto = () => {
     const { sku } = useParams();
     useEffect(() => {
         let auxList = productList;
-        
+
         http.get('product/sku/' + sku)
             .then(response => {
-                if(response.status === 404) {
+                if (response.status === 404) {
                     navigate('/produto')
                 }
                 setMainProduct(response.data);
-                console.log('agora o main product não está mais vazio')
                 auxList.push(response.data)
                 setProductList(auxList)
                 addSize();
                 addColors();
+                povoarSelect(response.data.stockQuantity);
             })
             .catch(erro => {
                 console.log(erro);
@@ -91,6 +91,18 @@ const DetalhesProduto = () => {
         setMainImage(imageUrl);
     }
 
+    const [stockValues, setStockValues] = useState<number[]>([]);
+    
+    const povoarSelect = (stockQuantity:number) => {
+        const temp: number[] = [];
+        for (let i = 1; i <= stockQuantity; i++) {
+            if (i === 11) break;
+            temp.push(i);
+        }
+        setStockValues(temp);
+    }
+    
+
     return (
         <div className={styles.container}>
             <div className={styles.carrousel}>
@@ -126,6 +138,17 @@ const DetalhesProduto = () => {
                                 <span className={styles.size} key={index}>{size}</span>
                             ))}
                         </div>
+                        <div className={styles.container_quantity}>
+                            <h2>Quantidade</h2>
+
+                            <select className={styles.stock_qtt_select} name="stock-qtt">
+                                {stockValues.map((value => (
+                                    <option key={value} value={value}>{value}</option>
+                                )))}
+
+                            </select>
+
+                        </div>
                         <div className={styles.container_shipping}>
                             <h2 className={styles.shipping} >Calcular Frete</h2>
                             <InputMask className={styles.input_shipping} mask="99999-999" />
@@ -152,9 +175,9 @@ const DetalhesProduto = () => {
                         <li>Categoria: {mainProduct?.category}</li>
                     </ul>
                 </div>
-                <Avaliacoes product={mainProduct!}/>
+                <Avaliacoes product={mainProduct!} />
             </div>
-                 
+
         </div>
 
     )

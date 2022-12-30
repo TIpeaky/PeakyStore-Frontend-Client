@@ -17,8 +17,8 @@ const Rotas = () => {
         <Route path='login' element={<LoginUsuario />} />
         <Route path='products' element={<Products />} />
         <Route path='register' element={<UserRegister />} />
-        <Route path='produto/:sku' element={<DetalhesProduto/>}/>
-        <Route path='/newPassword' element={<NewPassword/>} />
+        <Route path='produto/:sku' element={<DetalhesProduto />} />
+        <Route path='/newPassword' element={<NewPassword />} />
         <Route path='*' element={<NotFound />} />
 
       </Route>

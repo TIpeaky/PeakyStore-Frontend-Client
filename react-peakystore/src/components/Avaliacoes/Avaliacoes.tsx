@@ -104,8 +104,8 @@ const Avaliacoes = ({ product }: avaliacoesInterface) => {
 
             {avaliation.length !== 0 ? (
                 <div>
-                    {avaliation.map(avaliation => (
-                        <div className={styles.avaliation_container_item}>
+                    {avaliation.map((avaliation,index) => ( 
+                        <div key={index} className={styles.avaliation_container_item}>
 
                             <div>
                                 <Stack direction="row" spacing={2}>
