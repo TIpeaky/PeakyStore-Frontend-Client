@@ -6,6 +6,7 @@ import Products from '../pages/Products'
 import UserRegister from "../pages/UserRegister"
 import NewPassword from '../pages/NewPassword'
 import NotFound from '../pages/NotFound'
+import Cart from '../pages/Cart/Cart'
 
 
 const Rotas = () => {
@@ -15,6 +16,7 @@ const Rotas = () => {
         <Route path='' element={<Home />} />
         <Route path='login' element={<LoginUsuario />} />
         <Route path='products' element={<Products />} />
+        <Route path='cart' element={<Cart />} />
         <Route path='register' element={<UserRegister />} />
         <Route path='/newPassword' element={<NewPassword/>} />
         <Route path='*' element={<NotFound />} />
